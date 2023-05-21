@@ -93,7 +93,7 @@ class ClassificationAug:
             aug.append(A.Resize(width, height, always_apply=True))
         aug = self._get_aug(aug)
         image = cv2.imread(image_path)
-        for i in tqdm(range(quantity), desc='Singel image'):
+        for i in range(quantity):
             augmented = aug(image=np.array(image))
             nimage = augmented['image']
             ClassificationAug._file_counter += 1
